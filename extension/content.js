@@ -43,8 +43,23 @@
   }
 })(function(options) {
   // [3] 機能を実装するコードの本体をここに書く ---
-  document.querySelectorAll('img').forEach((e) => {
-    e.style.outline = '1px solid red';
+  document.querySelectorAll('body *').forEach((e) => {
+    let color;
+    if (e.localName == 'img') {
+      color = 'red'
+    } else if (e.localName == 'iframe') {
+      e.style.opacity = 0.1;
+    } else {
+      const style = window.getComputedStyle(e);
+      if (style.backgroundImage.includes('url')) {
+        color = 'blue';
+      }
+    }
+    if (color) {
+      e.style.outline = `2px solid ${color}`;
+      e.style.outlineOffset = '-2px'
+      e.classList.add('_img-marker');
+    }
   });
   // --- ここまで [3]
 });

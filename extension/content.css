@@ -1,1 +1,5 @@
 @charset "UTF-8";
+
+body:not(.img-marker-active) ._img-marker {
+  outline: none !important;
+}
