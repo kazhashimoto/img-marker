@@ -1,0 +1,16 @@
+{
+  "name": "IMG marker",
+  "description": "img要素を枠で示す",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+   "default_title": "Click to start"
+  },
+  "permissions": [
+    "activeTab", "scripting", "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html"
+}
