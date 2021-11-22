@@ -1,0 +1,25 @@
+body {
+  font-family: sans-serif;
+}
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 20px auto 0;
+}
+
+.box {
+  width: 240px;
+}
+.box + .box {
+  margin-top: 20px;
+}
+.box img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+.frame {
+  width: 300px;
+  min-height: 300px;
+}
