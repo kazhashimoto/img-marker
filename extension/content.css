@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
-body:not(.img-marker-active) ._img-marker {
+body:not(.img-marker-active) ._img-marker-element {
   outline: none !important;
+}
+
+body[class*="img-marker-active"] iframe._img-marker-iframe {
+  opacity: 0.1;
 }
