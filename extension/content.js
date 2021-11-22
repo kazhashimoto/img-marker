@@ -45,7 +45,7 @@
   }
 
 })('img-marker', // [1] <body>に追加するclass名
-function init_options(options) {
+function(options) {
   // [2] オプションの初期値を設定するコードをここに書く ---
   options.items = {};
   options.colors = {};
