@@ -33,15 +33,15 @@
   }
 
   function start() {
-    let state = true;
+    let active = true;
     if (document.body.classList.contains(CLASSNAME)) {
       if (!document.body.classList.contains(`${CLASSNAME}-active`)) {
-        state = false;
+        active = false;
       }
     } else {
       document.body.classList.add(CLASSNAME, `${CLASSNAME}-active`);
     }
-    process(options, state);
+    process(options, active);
   }
 
 })('img-marker', // [1] <body>に追加するclass名
@@ -51,9 +51,8 @@ function(options) {
   options.colors = {};
   // --- ここまで [2]
 },
-function(options, state) {
-  console.log('### state', state);
-  if (!state) { // アイコンの状態がOFFになって呼ばれた時
+function(options, active) {
+  if (!active) { // アイコンの状態がOFFになって呼ばれた時
     document.querySelectorAll('iframe').forEach(e => {
       e.classList.remove('_img-marker-iframe');
     });
