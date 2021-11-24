@@ -19,6 +19,12 @@ body {
   vertical-align: top;
 }
 
+.bg {
+  height: 180px;
+  background-image: url(https://picsum.photos/id/756/400/300);
+  background-size: cover;
+}
+
 .frame {
   width: 300px;
   min-height: 300px;

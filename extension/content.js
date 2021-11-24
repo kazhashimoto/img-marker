@@ -44,31 +44,30 @@
     process(options, active);
   }
 
-})('img-marker', // [1] <body>に追加するclass名
+})('img-marker',
 function(options) {
-  // [2] オプションの初期値を設定するコードをここに書く ---
-  options.items = {};
-  options.colors = {};
-  // --- ここまで [2]
+  options.items = {item1: true};
+  options.colors = {color1: '#ff0000', color2: '#0000ff'};
 },
 function(options, active) {
-  if (!active) { // アイコンの状態がOFFになって呼ばれた時
+  if (!active) {
     document.querySelectorAll('iframe').forEach(e => {
-      e.classList.remove('_img-marker-iframe');
+      if (e.classList.contains('_img-marker-iframe')) {
+          e.classList.remove('_img-marker-iframe');
+      }
     });
     return;
   }
-  // [3] 機能を実装するコードの本体をここに書く ---
   document.querySelectorAll('body *').forEach(e => {
     let color;
     if (e.localName == 'img') {
-      color = 'red'
-    } else if (e.localName == 'iframe') {
+      color = options.colors.color1
+    } else if (e.localName == 'iframe' && options.items.item1) {
         e.classList.add('_img-marker-iframe');
     } else {
       const style = window.getComputedStyle(e);
       if (style.backgroundImage.includes('url')) {
-        color = 'blue';
+        color = options.colors.color2;
       }
     }
     if (color) {
@@ -77,6 +76,4 @@ function(options, active) {
       e.classList.add('_img-marker-element');
     }
   });
-  // --- ここまで [3]
-}
-);
+});
